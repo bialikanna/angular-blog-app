@@ -3,13 +3,26 @@
         <form [formGroup]="postForm" (ngSubmit)="addPost()">
             <div class="mb-3">
                 <label for="titleInput" class="form-label">Tytuł</label>
-                <input formControlName="title" class="form-control" id="titleInput">
+                <input 
+                formControlName="title"
+                class="form-control"
+                id="titleInput"
+                [ngClass]="{'ng-invalid ng-dirty' : errorValidation}"
+                placeholder="Wpisz tytuł posta minimum 5 znaków.">
+                <span *ngIf="errorValidation">Minimalna ilość znaków {{minTitleLength}}.</span>
             </div>
             <div class="mb-3">
                 <label for="textInput" class="form-label">Treść</label>
-                <textarea formControlName="text" class="form-control" id="textInput" rows="3"></textarea>
+                <textarea
+                formControlName="text"
+                class="form-control"
+                id="textInput"
+                rows="3"
+                [ngClass]="{'ng-invalid ng-dirty' : errorPostValidation}"
+                placeholder="Wpisz treść posta minimum 5 znaków.">
+                </textarea>
+                <span *ngIf="errorPostValidation">Minimalna ilość znaków {{minPostLength}}.</span>
             </div>
-
             <div>
                 <button type="submit" [disabled]="postForm.invalid" class="btn btn-primary mb-3">
                     Dodaj
@@ -18,4 +31,3 @@
         </form>
     </div>
 </div>
-

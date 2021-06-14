@@ -6,6 +6,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BlogModule } from './blog/blog.module';
 import { FooterComponent } from './footer/footer.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BlogModule
+    BlogModule,
+    NoopAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
